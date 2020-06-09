@@ -1,0 +1,47 @@
+"""
+Magnet Object.
+"""
+type Magnet {
+  category: String
+  magnet: String!
+  pageRank: Int
+  peers: Int
+  seeders: Int
+  size: String
+  source: String
+  subCategory: String
+  title: String!
+  torrent: String
+  uploaded: String
+  uploader: String
+  xt: ID!
+}
+
+type Query {
+  """
+  Get List of Magnets.
+  """
+  getMagnets: [Magnet]
+}
+
+input MagnetInput {
+  category: String
+  magnet: String!
+  pageRank: Int
+  peers: Int
+  seeders: Int
+  size: String
+  source: String
+  subCategory: String
+  title: String!
+  torrent: String
+  uploaded: String
+  uploader: String
+  xt: ID!
+}
+
+type Mutation {
+  addMagnet(input: MagnetInput): Magnet
+
+  removeMagnet(xt: ID!): Magnet
+}
